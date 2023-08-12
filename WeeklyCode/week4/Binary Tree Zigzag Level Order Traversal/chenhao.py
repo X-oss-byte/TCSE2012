@@ -3,11 +3,11 @@ class Solution:
     # @return a list of lists of integers
     def zigzagLevelOrder(self, root):
         res=[]
-        if root==None:
+        if root is None:
             return res
         curLayer=[root]
         forward=True
-        while len(curLayer)>0:
+        while curLayer:
             n=len(curLayer)
             order=range(0,n) if forward else range(n-1,-1,-1)
             res.append([ curLayer[i].val for i in order ])

@@ -8,7 +8,7 @@ class Solution:
     # @param head, a ListNode
     # @return a ListNode
     def deleteDuplicates(self, head):
-        if head==None or head.next==None:
+        if head is None or head.next is None:
             return head
         cursor = ListNode(0)
         newHead = None
@@ -20,7 +20,7 @@ class Solution:
                 while cursor.next!=None and cursor.next.val==toBeDelVal:
                     cursor=cursor.next
             else:
-                if newHead==None:
+                if newHead is None:
                     newHead=cursor.next
                     tail=newHead
                 else:

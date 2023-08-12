@@ -4,7 +4,7 @@ class Solution:
     cache={}
     
     def cloneTree(self,root):
-        if root==None:
+        if root is None:
             return None
         clone=TreeNode(root.val)
         clone.left=self.cloneTree(root.left)
@@ -31,7 +31,7 @@ class Solution:
         return res
     
     def assignValues(self,cur):
-        if cur==None:
+        if cur is None:
             return
         self.assignValues(cur.left)
         cur.val=self.curVal

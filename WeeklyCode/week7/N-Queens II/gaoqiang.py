@@ -27,14 +27,13 @@ class Solution:
 						self.count=self.count+1
 						forward=False
 					else:
-						currentQ=currentQ+1
+						currentQ += 1
 						queues[currentQ]=0 #may walk back
 				else:
 					forward=False
+			elif queues[currentQ]<n-1:
+				queues[currentQ]=queues[currentQ]+1
+				forward=True
 			else:
-				if queues[currentQ]<n-1:
-					queues[currentQ]=queues[currentQ]+1
-					forward=True
-				else:
-					currentQ=currentQ-1
+				currentQ -= 1
 		return self.count

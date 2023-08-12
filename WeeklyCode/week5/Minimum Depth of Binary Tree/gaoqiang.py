@@ -9,24 +9,23 @@ class Solution:
     # @param root, a tree node
     # @return an integer
     def minDepth(self, root):
-    	if root==None:
-    		return 0
-    	queue = []
-    	queue.append(root)
-    	height = 1
-    	while len(queue)>0:
-    		tmpList = []
-    		while len(queue)>0:
-    			tmpList.append(queue.pop(0))
-    		for i in range(0,len(tmpList)):
-    			tmpNode = tmpList[i]
-    			if tmpNode.left == None and tmpNode.right==None:
-    				return height
-    			if tmpNode.left!=None:
-    				queue.append(tmpNode.left)
-    			if tmpNode.right!=None:
-    				queue.append(tmpNode.right)
-    		height = height+1
+        if root is None:
+            return 0
+        queue = [root]
+        height = 1
+        while queue:
+            tmpList = []
+            while queue:
+                tmpList.append(queue.pop(0))
+            for i in range(0,len(tmpList)):
+                tmpNode = tmpList[i]
+                if tmpNode.left is None and tmpNode.right is None:
+                    return height
+                if tmpNode.left!=None:
+                	queue.append(tmpNode.left)
+                if tmpNode.right!=None:
+                	queue.append(tmpNode.right)
+            height = height+1
 
 if __name__=='__main__':
 	root = TreeNode(1)

@@ -26,8 +26,8 @@ class Solution:
     def getFirstK(self,head,k):
         vHead=ListNode(0)
         cur=vHead
-        for i in range(0,k):
-            if head==None:
+        for _ in range(0,k):
+            if head is None:
                 break
             cur.next=head
             cur=cur.next
@@ -59,7 +59,7 @@ class Solution:
         k=0
         while True:
             (list1,cur)=self.getFirstK(cur,step)
-            if list1==None:
+            if list1 is None:
                 break
             (list2,cur)=self.getFirstK(cur,step)
             (rear.next,mergedRear)=self.merge(list1,list2)
@@ -70,9 +70,9 @@ class Solution:
     # @param head, a ListNode
     # @return a ListNode
     def sortList(self, head):
-        if head==None:
+        if head is None:
             return None
-        
+
         step=1
         end=False
         while not end:

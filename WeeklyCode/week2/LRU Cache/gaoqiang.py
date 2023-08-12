@@ -20,15 +20,14 @@ class LRUCache:
     # @param value, an integer
     # @return nothing
     def set(self, key, value):
-    	if self.cache.has_key(key):
-    		self.LRUList.remove(key)
-    	else:
-    		if len(self.LRUList)==self.capacity:
-    			self.cache.pop(self.LRUList[0])
-    			del self.LRUList[0]
+        if self.cache.has_key(key):
+            self.LRUList.remove(key)
+        elif len(self.LRUList)==self.capacity:
+            self.cache.pop(self.LRUList[0])
+            del self.LRUList[0]
 
-    	self.LRUList.append(key)
-    	self.cache.update({key : value})
+        self.LRUList.append(key)
+        self.cache.update({key : value})
 
 if __name__=='__main__':
 	cache = LRUCache(1)

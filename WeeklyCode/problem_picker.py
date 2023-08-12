@@ -156,7 +156,7 @@ import random
 
 def main():
 	random.shuffle(problems)
-	for p in problems[0:N]:
+	for p in problems[:N]:
 		print(p)
 
 if __name__ == '__main__':

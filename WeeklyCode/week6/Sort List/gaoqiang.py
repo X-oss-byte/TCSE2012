@@ -11,21 +11,21 @@ class Solution:
     	return self.mergesort(head)
 
     def mergesort(self, head):
-    	if head ==None:
-    		return None
-    	if head.next==None:
-    		return head
-    	walker = head
-    	runner = head
-    	while runner.next!=None and runner.next.next!=None:
-    		walker=walker.next
-    		runner=runner.next.next
-    	head2 = walker.next
-    	walker.next = None
-    	head1 = head
-    	head1 = self.mergesort(head1)
-    	head2 = self.mergesort(head2)
-    	return self.merge(head1, head2)
+        if head is None:
+            return None
+        if head.next is None:
+            return head
+        walker = head
+        runner = head
+        while runner.next!=None and runner.next.next!=None:
+        	walker=walker.next
+        	runner=runner.next.next
+        head2 = walker.next
+        walker.next = None
+        head1 = head
+        head1 = self.mergesort(head1)
+        head2 = self.mergesort(head2)
+        return self.merge(head1, head2)
 
     def merge(self, head1, head2):
     	head = ListNode(0)

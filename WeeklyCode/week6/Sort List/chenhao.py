@@ -29,7 +29,7 @@ class Solution:
     # @param head, a ListNode
     # @return a ListNode
     def sortList(self, head):
-        if head==None:
+        if head is None:
             return None
         length=0
         cur=head

@@ -3,19 +3,16 @@ class Solution:
     # @param n, a integer
     # @return a float
     def pow(self, x, n):
-    	if self.double_equal(x,0) and n<0:
-    		return 0
-    	if self.double_equal(x,0) or self.double_equal(x,1):
-    		return x
-    	if n==0:
-    		return 1
-    	if n==1:
-    		return x
-    	result = self.pow2(x,abs(n))
-    	if n > 0:
-    		return result
-    	else:
-    		return 1/result
+        if self.double_equal(x,0) and n<0:
+        	return 0
+        if self.double_equal(x,0) or self.double_equal(x,1):
+        	return x
+        if n==0:
+        	return 1
+        if n==1:
+        	return x
+        result = self.pow2(x,abs(n))
+        return result if n > 0 else 1/result
 
     def double_equal(self,val1,val2):
     	return abs(val1-val2)<1E-7
