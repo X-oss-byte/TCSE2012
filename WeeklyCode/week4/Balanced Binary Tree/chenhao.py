@@ -1,13 +1,13 @@
 class Solution:
     
     def height(self, root):
-        if root==None:
+        if root is None:
             return 0
         leftHeight=self.height(root.left)
-        if leftHeight==None:
+        if leftHeight is None:
             return None
         rightHeight=self.height(root.right)
-        if rightHeight==None or abs(leftHeight-rightHeight)>1:
+        if rightHeight is None or abs(leftHeight - rightHeight) > 1:
             return None
         return max(leftHeight,rightHeight)+1
     

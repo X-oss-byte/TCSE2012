@@ -4,16 +4,16 @@ class Solution:
     def mergeKLists(self, lists):
         vHead=ListNode(0)
         cur=vHead
-        
-        heap=[ (listHead.val,listHead) for listHead in lists if listHead!=None ]  
+
+        heap=[ (listHead.val,listHead) for listHead in lists if listHead!=None ]
         heapq.heapify(heap) 
-        
-        while len(heap)!=0:
+
+        while heap:
             val,node=heapq.heappop(heap)
             cur.next=node
             cur=node
             if node.next!=None:
                 heapq.heappush(heap,(node.next.val,node.next))
         cur.next=None
-        
+
         return vHead.next

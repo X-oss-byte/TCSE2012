@@ -8,21 +8,18 @@ class Solution:
     # @param a list of ListNode
     # @return a ListNode
     def mergeKLists(self, lists):
-    	head = ListNode(-1)
-    	cursor = head
-    	topK = []
-    	for i in range(0, len(lists)):
-    		if lists[i]!=None:
-    			topK.append(lists[i])
-    	while len(topK)>0:
-    		minIndex = self.getMinIndex(topK)
-    		tmp = topK.pop(minIndex)
-    		cursor.next = tmp
-    		cursor = cursor.next
-    		if tmp.next!=None:
-    			tmp=tmp.next
-    			topK.append(tmp)
-    	return head.next
+        head = ListNode(-1)
+        cursor = head
+        topK = [lists[i] for i in range(0, len(lists)) if lists[i]!=None]
+        while topK:
+            minIndex = self.getMinIndex(topK)
+            tmp = topK.pop(minIndex)
+            cursor.next = tmp
+            cursor = cursor.next
+            if tmp.next!=None:
+            	tmp=tmp.next
+            	topK.append(tmp)
+        return head.next
 
     def getMinIndex(self, lists):
     	index = 0

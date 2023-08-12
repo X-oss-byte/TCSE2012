@@ -15,14 +15,14 @@ class Solution:
     	return self.dfs(root,0)
 
     def dfs(self, root, sum):
-    	if root==None:
-    		return False
-    	sum = sum+root.val
-    	if sum==self.targetValue and root.left==None and root.right==None:
-    		return True
-    	result = self.dfs(root.left, sum)
-    	if result:
-    		return result
-    	result = self.dfs(root.right, sum)
-    	return result
+        if root is None:
+            return False
+        sum = sum+root.val
+        if sum == self.targetValue and root.left is None and root.right is None:
+            return True
+        result = self.dfs(root.left, sum)
+        if result:
+        	return result
+        result = self.dfs(root.right, sum)
+        return result
         

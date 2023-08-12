@@ -7,24 +7,25 @@ class TreeNode:
 class Solution:
 	cursor = None
 	def buildTree(self, preorder, inorder):
-		if preorder==None or inorder==None or len(preorder)==0 or len(inorder)==0:
-			return None
-		self.cursor = 0
-		return self.buildTree2(preorder, inorder, 0, len(inorder)-1)
+	    if (
+	        preorder is None
+	        or inorder is None
+	        or len(preorder) == 0
+	        or len(inorder) == 0
+	    ):
+	        return None
+	    self.cursor = 0
+	    return self.buildTree2(preorder, inorder, 0, len(inorder)-1)
 	def buildTree2(self, preorder, inorder, instart, inend):
-		if self.cursor>=len(preorder) or instart>inend:
-			return None
-		value = preorder[self.cursor]
-		self.cursor = self.cursor+1
-		head = TreeNode(value)
-		pivot = None
-		for i in range(instart, inend+1):
-			if inorder[i]==value:
-				pivot=i
-				break
-		head.left = self.buildTree2(preorder, inorder, instart, pivot-1)
-		head.right = self.buildTree2(preorder, inorder, pivot+1 , inend)
-		return head
+	    if self.cursor>=len(preorder) or instart>inend:
+	    	return None
+	    value = preorder[self.cursor]
+	    self.cursor = self.cursor+1
+	    head = TreeNode(value)
+	    pivot = next((i for i in range(instart, inend+1) if inorder[i]==value), None)
+	    head.left = self.buildTree2(preorder, inorder, instart, pivot-1)
+	    head.right = self.buildTree2(preorder, inorder, pivot+1 , inend)
+	    return head
 
 	def printTree(self, root):
 		if root==None:

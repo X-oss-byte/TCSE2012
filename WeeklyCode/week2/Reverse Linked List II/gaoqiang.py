@@ -10,37 +10,28 @@ class Solution:
     # @param n, an integer
     # @return a ListNode
     def reverseBetween(self, head, m, n):
-    	beforeStart = None
-    	i=0
-    	while i<m-1:
-    		i = i+1
-    		if beforeStart==None:
-    			beforeStart = head
-    		else:
-    			beforeStart = beforeStart.next
-
-    	i = i+1
-    	if beforeStart==None:
-    		p1 = head
-    	else:
-    		p1 = beforeStart.next
-    	transientP1 = p1
-    	p2 = p1.next
-    	p1.next = None
-    	p3 = None
-    	while p2!=None and i<n:
-    		p3 = p2.next
-    		p2.next = p1
-    		p1 = p2
-    		p2 = p3
-    		i=i+1
-    	if beforeStart!=None:
-    		beforeStart.next=p1
-    		transientP1.next=p2
-    		return head
-    	else:
-    		transientP1.next=p2
-    		return p1 
+        beforeStart = None
+        i=0
+        while i<m-1:
+            i += 1
+            beforeStart = head if beforeStart is None else beforeStart.next
+        i += 1
+        p1 = head if beforeStart is None else beforeStart.next
+        transientP1 = p1
+        p2 = p1.next
+        p1.next = None
+        p3 = None
+        while p2!=None and i<n:
+            p3 = p2.next
+            p2.next = p1
+            p1 = p2
+            p2 = p3
+            i += 1
+        transientP1.next=p2
+        if beforeStart is None:
+            return p1
+        beforeStart.next = p1
+        return head 
 
 if __name__=='__main__':
 	s=Solution()

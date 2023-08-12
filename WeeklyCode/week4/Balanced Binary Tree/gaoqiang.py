@@ -6,14 +6,14 @@ class TreeNode:
 
 class Solution:
 	def isBalanced(self, root):
-		if root == None:
+		if root is None:
 			return True
 		else:
 			result = self.postOrder(root)
-		return True if result!=-1 else False
+		return result != -1
 
 	def postOrder(self, root):
-		if root == None:
+		if root is None:
 			return 0
 		leftDepth = self.postOrder(root.left)
 		if leftDepth == -1:
@@ -23,7 +23,7 @@ class Solution:
 			return -1
 		if abs(leftDepth-rightDepth) > 1:
 			return -1
-		return (leftDepth if leftDepth>rightDepth else rightDepth) + 1
+		return max(leftDepth, rightDepth) + 1
 
 if __name__=='__main__':
 	s = Solution()

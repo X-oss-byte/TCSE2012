@@ -9,4 +9,4 @@ if __name__ == '__main__':
 		sub_dir=sub_dir.strip(' -')
 		if len(sub_dir)==0:
 			break
-		os.mkdir(base_dir+"/"+sub_dir)
+		os.mkdir(f"{base_dir}/{sub_dir}")
